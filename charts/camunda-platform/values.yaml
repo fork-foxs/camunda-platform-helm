@@ -284,11 +284,11 @@ zeebe:
   sidecars: []
 
   ## @param zeebe.clusterSize defines the amount of brokers (=replicas), which are deployed via helm
-  clusterSize: "3"
+  clusterSize: "1"
   ## @param zeebe.partitionCount defines how many zeebe partitions are set up in the cluster
-  partitionCount: "3"
+  partitionCount: "1"
   ## @param zeebe.replicationFactor defines how each partition is replicated, the value defines the number of nodes
-  replicationFactor: "3"
+  replicationFactor: "1"
   ## @extra zeebe.env can be used to set extra environment variables in each zeebe broker container
   env:
     ## @param zeebe.env[0].name
@@ -526,7 +526,7 @@ zeebe:
 ## @extra Gateway configuration to define properties related to the standalone gateway
 zeebe-gateway:
   ## @param zeebe-gateway.replicas defines how many standalone gateways are deployed
-  replicas: 2
+  replicas: 1
   ## @extra zeebe-gateway.image configuration to configure the zeebe-gateway image specifics
   image:
     ## @param zeebe-gateway.image.registry can be used to set container image registry.
@@ -772,7 +772,7 @@ zeebe-gateway:
 ## @extra.operate configuration for the Operate sub chart.
 operate:
   ## @param operate.enabled if true, the Operate deployment and its related resources are deployed via a helm release
-  enabled: true
+  enabled: false
 
   ## @extra operate.image configuration to configure the Operate image specifics
   image:
@@ -982,7 +982,7 @@ operate:
 # Tasklist configuration for the tasklist sub chart.
 tasklist:
   ## @param tasklist.enabled if true, the tasklist deployment and its related resources are deployed via a helm release
-  enabled: true
+  enabled: false
 
   ## @extra tasklist.image configuration to configure the tasklist image specifics
   image:
@@ -1193,7 +1193,7 @@ tasklist:
 # Optimize configuration for the Optimize sub chart.
 optimize:
   ## @param optimize.enabled if true, the Optimize deployment and its related resources are deployed via a helm release
-  enabled: true
+  enabled: false
 
   ## @extra optimize.image configuration to configure the Optimize image specifics
   # https://hub.docker.com/r/camunda/optimize/tags
@@ -1228,7 +1228,7 @@ optimize:
   podLabels: {}
 
   ## @param optimize.partitionCount defines how many Zeebe partitions are set up in the cluster and which should be imported by Optimize
-  partitionCount: "3"
+  partitionCount: "1"
   ## @param optimize.env can be used to set extra environment variables in each Optimize container
   env: []
   ## @param optimize.command can be used to override the default command provided by the container image. See https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/
@@ -1402,7 +1402,7 @@ identity:
   #         global.identity.auth.enabled=false
   #         optimize.enabled=false
   #         webModeler.enabled=false
-  enabled: true
+  enabled: false
 
   ## @param identity.fullnameOverride can be used to override the full name of the Identity resources
   fullnameOverride: ""
@@ -2569,7 +2569,7 @@ postgresql:
 ## @extra connectors configuration for the Connectors.
 connectors:
   ## @param connectors.enabled if true, the Connectors deployment and its related resources are deployed via a helm release
-  enabled: true
+  enabled: false
 
   ## @extra connectors.inbound Switch for inbound mode (e.g., for webhook or polling)
   inbound:
