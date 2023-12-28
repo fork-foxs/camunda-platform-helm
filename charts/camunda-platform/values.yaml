@@ -3069,14 +3069,27 @@ elasticsearch:
     persistence:
       ## @param elasticsearch.master.persistence.size
       size: 64Gi
+
     resources:
-    requests:
-      cpu: 800m
-      memory: 1200Mi
-    limits:
-      cpu: 960m
-      memory: 1920Mi
-      
+      requests:
+        cpu: 800m
+        memory: 1200Mi
+      limits:
+        cpu: 960m
+        memory: 1920Mi
+        
+    # resources:
+    #   requests:
+    #     ## @param elasticsearch.master.resources.requests.cpu cpu request
+    #     cpu: 1
+    #     ## @param elasticsearch.master.resources.requests.memory request
+    #     memory: 2Gi
+    #   limits:
+    #     ## @param elasticsearch.master.resources.limits.cpu cpu limit
+    #     cpu: 2
+    #     ## @param elasticsearch.master.resources.limits.memory memory limit
+    #     memory: 2Gi
+
     extraEnvVars:
     ## @param elasticsearch.master.extraEnvVars[0].name env
     - name: ELASTICSEARCH_ENABLE_REST_TLS
