@@ -354,9 +354,9 @@ zeebe:
     annotations: {}
 
   ## @param zeebe.cpuThreadCount defines how many threads can be used for the processing on each broker pod
-  cpuThreadCount: "3"
+  cpuThreadCount: "1"
   ## @param zeebe.ioThreadCount defines how many threads can be used for the exporting on each broker pod
-  ioThreadCount: "3"
+  ioThreadCount: "1"
   ## @extra zeebe.resources configuration to set request and limit configuration for the container https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
   ## @extra zeebe.resources.requests
   ## @param zeebe.resources.requests.cpu
@@ -526,7 +526,7 @@ zeebe:
 ## @extra Gateway configuration to define properties related to the standalone gateway
 zeebe-gateway:
   ## @param zeebe-gateway.replicas defines how many standalone gateways are deployed
-  replicas: 1
+  replicas: 2
   ## @extra zeebe-gateway.image configuration to configure the zeebe-gateway image specifics
   image:
     ## @param zeebe-gateway.image.registry can be used to set container image registry.
@@ -772,7 +772,7 @@ zeebe-gateway:
 ## @extra.operate configuration for the Operate sub chart.
 operate:
   ## @param operate.enabled if true, the Operate deployment and its related resources are deployed via a helm release
-  enabled: false
+  enabled: true
 
   ## @extra operate.image configuration to configure the Operate image specifics
   image:
@@ -982,7 +982,7 @@ operate:
 # Tasklist configuration for the tasklist sub chart.
 tasklist:
   ## @param tasklist.enabled if true, the tasklist deployment and its related resources are deployed via a helm release
-  enabled: false
+  enabled: true
 
   ## @extra tasklist.image configuration to configure the tasklist image specifics
   image:
@@ -1193,7 +1193,7 @@ tasklist:
 # Optimize configuration for the Optimize sub chart.
 optimize:
   ## @param optimize.enabled if true, the Optimize deployment and its related resources are deployed via a helm release
-  enabled: false
+  enabled: true
 
   ## @extra optimize.image configuration to configure the Optimize image specifics
   # https://hub.docker.com/r/camunda/optimize/tags
@@ -1402,7 +1402,7 @@ identity:
   #         global.identity.auth.enabled=false
   #         optimize.enabled=false
   #         webModeler.enabled=false
-  enabled: false
+  enabled: true
 
   ## @param identity.fullnameOverride can be used to override the full name of the Identity resources
   fullnameOverride: ""
@@ -2569,7 +2569,7 @@ postgresql:
 ## @extra connectors configuration for the Connectors.
 connectors:
   ## @param connectors.enabled if true, the Connectors deployment and its related resources are deployed via a helm release
-  enabled: false
+  enabled: true
 
   ## @extra connectors.inbound Switch for inbound mode (e.g., for webhook or polling)
   inbound:
